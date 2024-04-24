@@ -94,7 +94,6 @@ func parseStructuredLog(lf string, tf string, vals LogValues) (rec StructuredLog
 
 type StructFormatter struct {
 	UsingIndent bool
-	ColoredLog  bool
 	Formatter
 }
 

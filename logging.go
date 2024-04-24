@@ -12,7 +12,7 @@ var (
 	DefaultFormatter     Formatter
 	DefaultJSONFormatter JSONFormatter
 
-	DefaultConsoleHandler WriterHandler
+	DefaultConsoleHandler StreamHandler
 	DefaultFileHandler    FileHandler
 )
 
@@ -92,7 +92,7 @@ func init() {
 		WithTimeFormat(BasicTimeFormat).
 		WithLogFormat(BasicLogFormat)
 
-	DefaultConsoleHandler = WriterHandler{}.
+	DefaultConsoleHandler = StreamHandler{}.
 		WithName("DefaultConsoleHandler").
 		WithLogLevel(DEBUG).
 		WithWriter(os.Stdout).

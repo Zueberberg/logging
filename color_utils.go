@@ -4,6 +4,10 @@ import (
 	"github.com/charmbracelet/lipgloss"
 )
 
+// TODO:
+// Дополнить цвета, для лог левелов - hex коды +
+// полноценные палитры для белого / черного цвета терминала
+
 var (
 	BlackColor = "0"
 

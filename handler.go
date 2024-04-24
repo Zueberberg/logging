@@ -16,12 +16,12 @@ type handlerABC struct {
 	Formatter Formattable
 }
 
-type WriterHandler struct {
+type StreamHandler struct {
 	Writer io.Writer
 	handlerABC
 }
 
-func (h WriterHandler) WriteLog(vals LogValues) {
+func (h StreamHandler) WriteLog(vals LogValues) {
 	if h.LogLevel <= vals.Level {
 		log := h.Formatter.ParseLog(vals)
 		_, err := fmt.Fprint(h.Writer, log)
@@ -31,22 +31,22 @@ func (h WriterHandler) WriteLog(vals LogValues) {
 	}
 }
 
-func (h WriterHandler) WithName(n string) WriterHandler {
+func (h StreamHandler) WithName(n string) StreamHandler {
 	h.Name = n
 	return h
 }
 
-func (h WriterHandler) WithWriter(w io.Writer) WriterHandler {
+func (h StreamHandler) WithWriter(w io.Writer) StreamHandler {
 	h.Writer = w
 	return h
 }
 
-func (h WriterHandler) WithLogLevel(l LogLevel) WriterHandler {
+func (h StreamHandler) WithLogLevel(l LogLevel) StreamHandler {
 	h.LogLevel = l
 	return h
 }
 
-func (h WriterHandler) WithFormatter(f Formattable) WriterHandler {
+func (h StreamHandler) WithFormatter(f Formattable) StreamHandler {
 	h.Formatter = f
 	return h
 }
