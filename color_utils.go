@@ -9,7 +9,7 @@ import (
 // полноценные палитры для белого / черного цвета терминала
 
 var (
-	BlackColor = "0"
+	BlackColor = "#000000"
 
 	FatalColor = "1"
 	ErrorColor = "1"
